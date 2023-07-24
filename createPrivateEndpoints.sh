@@ -1,14 +1,16 @@
-RG='rg-azure-search-openai-demo-dev'
-VNET='azure-search-openai-vnet'
-SUBNET_PE='pe-subnet'
-SUBNET_VNI='vni-subnet'
-# Creating a Jumpbox for a Jumpbox VM, details of creating the VM not included
-SUBNET_JUMPBOX='jumpbox-subnet'
+if [ ! -f ./myEnvironment.sh ]
+then
+    if [ -f ./myEnvironment-local.sh ]
+    then
+        echo "Environment not setup, local environment defined, copying to myEnvironment.sh"
+        cp ./myEnvironment-local.sh ./myEnvironment.sh
+    else
+        echo "Environment not setup, local environment not defined, copy ./myEnvironment-template.sh to ./myEnvironment-local.sh and edit values. Then re-run this script"
+        exit
+    fi
+fi
 
-VNET_ADDR='10.0.0.0/16'
-SUBNET_PE_ADDR='10.0.0.0/24'
-SUBNET_JMP_ADDR='10.0.1.0/24'
-SUBNET_VNI_ADDR='10.0.2.0/24'
+source ./myEnvironment.sh
 
 WEBAPP_PE_NAME='wa-pe-1'
 WEBAPP_GROUP_ID='sites'
@@ -68,19 +70,19 @@ az network private-dns zone create \
     --resource-group $RG \
     --name "privatelink.${RES_TAG}.net"
 
-az network private-dns link vnet create \
-    --resource-group $RG \
-    --zone-name "privatelink.${RES_TAG}.net" \
-    --name "dns-link-${RES_TAG}" \
-    --virtual-network $VNET \
-    --registration-enabled false
-
 az network private-endpoint dns-zone-group create \
     --resource-group $RG \
     --endpoint-name $WEBAPP_PE_NAME \
     --name "zone-group-${RES_TAG}" \
     --private-dns-zone "privatelink.${RES_TAG}.net" \
     --zone-name $RES_TAG
+
+az network private-dns link vnet create \
+    --resource-group $RG \
+    --zone-name "privatelink.${RES_TAG}.net" \
+    --name "dns-link-${RES_TAG}" \
+    --virtual-network $VNET \
+    --registration-enabled false
 
 az webapp vnet-integration add \
     --resource-group $RG \
@@ -97,13 +99,13 @@ az resource update --resource-group $RG \
 
 RES_TAG=$OPENAI_RES_TAG
 
-az network private-dns zone create \
-    --resource-group $RG \
-    --name "privatelink.${RES_TAG}.net"
-
 # very importat - DNS Zone must be called privatelink.openai.azure.com
 # this is called out indirectly on the DNS Configuration page for the Private Endpoint
 # to test it is working correctly, nslookup the Public DNS from a VM on the VNet, you should get the private IP 
+az network private-dns zone create \
+    --resource-group $RG \
+    --name "privatelink.${RES_TAG}.azure.com"
+
 az network private-dns link vnet create \
     --resource-group $RG \
     --zone-name "privatelink.${RES_TAG}.azure.com" \

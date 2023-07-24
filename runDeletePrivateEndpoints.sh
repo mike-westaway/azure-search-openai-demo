@@ -1,0 +1,1 @@
+bash -x ./deletePrivateEndpoints.sh 2>&1 | tee delete.log 

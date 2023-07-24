@@ -1,14 +1,4 @@
-RG='rg-azure-search-openai-demo-dev'
-VNET='azure-search-openai-vnet'
-SUBNET_PE='pe-subnet'
-SUBNET_VNI='vni-subnet'
-# Creating a Jumpbox for a Jumpbox VM, details of creating the VM not included
-SUBNET_JUMPBOX='jumpbox-subnet'
-
-VNET_ADDR='10.0.0.0/16'
-SUBNET_PE_ADDR='10.0.0.0/24'
-SUBNET_JMP_ADDR='10.0.1.0/24'
-SUBNET_VNI_ADDR='10.0.2.0/24'
+source ./myEnvironment.sh
 
 WEBAPP_PE_NAME='wa-pe-1'
 WEBAPP_GROUP_ID='sites'
@@ -35,16 +25,16 @@ id=$(az cognitiveservices account list \
     --query '[].[id]' \
     --output tsv)
 
+subnetid=$(az network vnet subnet show \
+-g $RG -n $SUBNET_VNI --vnet-name $VNET \
+--query id --output tsv)
+
 for i in $id
 do
     COG_SVC=$(basename $i)
 
     # Delete a network rule for App Service VNet Integration
     # https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks?tabs=azure-cli#grant-access-from-a-virtual-network
-    subnetid=$(az network vnet subnet show \
-    -g $RG -n $SUBNET_VNI --vnet-name $VNET \
-    --query id --output tsv)
-
     az cognitiveservices account network-rule remove \
         -g $RG -n $COG_SVC \
         --subnet $subnetid
@@ -57,6 +47,11 @@ do
         --resource-group $RG \
         --endpoint-name ${COG_SVC}-pe \
         --name "zone-group-${RES_TAG}" 
+
+    az resource update \
+        --ids $i \
+        --set properties.networkAcls="{'defaultAction':'Allow'}"
+
 done
 
 az network private-dns zone delete \

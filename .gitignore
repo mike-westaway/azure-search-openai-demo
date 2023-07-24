@@ -1,0 +1,268 @@
+# Azure az webapp deployment details
+.azure
+*_env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# NPM
+npm-debug.log*
+node_modules
+static/
+.gitattributes
+azure.yaml
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE
+LICENSE.md
+pyproject.toml
+README.md
+requirements-dev.txt
+test.sh
+.devcontainer/devcontainer.json
+.devcontainer/Dockerfile
+.github/CODE_OF_CONDUCT.md
+.github/ISSUE_TEMPLATE.md
+.github/PULL_REQUEST_TEMPLATE.md
+.github/workflows/python-test.yaml
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+app/start.ps1
+app/start.sh
+app/backend/app.py
+app/backend/langchainadapters.py
+app/backend/lookuptool.py
+app/backend/requirements.txt
+app/backend/text.py
+app/backend/approaches/approach.py
+app/backend/approaches/chatreadretrieveread.py
+app/backend/approaches/readdecomposeask.py
+app/backend/approaches/readretrieveread.py
+app/backend/approaches/retrievethenread.py
+app/backend/core/__init__.py
+app/backend/core/messagebuilder.py
+app/backend/core/modelhelper.py
+app/backend/data/employeeinfo.csv
+app/frontend/.prettierrc.json
+app/frontend/index.html
+app/frontend/package-lock.json
+app/frontend/package.json
+app/frontend/tsconfig.json
+app/frontend/vite.config.ts
+app/frontend/public/favicon.ico
+app/frontend/src/index.css
+app/frontend/src/index.tsx
+app/frontend/src/vite-env.d.ts
+app/frontend/src/api/api.ts
+app/frontend/src/api/index.ts
+app/frontend/src/api/models.ts
+app/frontend/src/assets/github.svg
+app/frontend/src/assets/search.svg
+app/frontend/src/components/AnalysisPanel/AnalysisPanel.module.css
+app/frontend/src/components/AnalysisPanel/AnalysisPanel.tsx
+app/frontend/src/components/AnalysisPanel/AnalysisPanelTabs.tsx
+app/frontend/src/components/AnalysisPanel/index.tsx
+app/frontend/src/components/Answer/Answer.module.css
+app/frontend/src/components/Answer/Answer.tsx
+app/frontend/src/components/Answer/AnswerError.tsx
+app/frontend/src/components/Answer/AnswerIcon.tsx
+app/frontend/src/components/Answer/AnswerLoading.tsx
+app/frontend/src/components/Answer/AnswerParser.tsx
+app/frontend/src/components/Answer/index.ts
+app/frontend/src/components/ClearChatButton/ClearChatButton.module.css
+app/frontend/src/components/ClearChatButton/ClearChatButton.tsx
+app/frontend/src/components/ClearChatButton/index.tsx
+app/frontend/src/components/Example/Example.module.css
+app/frontend/src/components/Example/Example.tsx
+app/frontend/src/components/Example/ExampleList.tsx
+app/frontend/src/components/Example/index.tsx
+app/frontend/src/components/QuestionInput/index.ts
+app/frontend/src/components/QuestionInput/QuestionInput.module.css
+app/frontend/src/components/QuestionInput/QuestionInput.tsx
+app/frontend/src/components/SettingsButton/index.tsx
+app/frontend/src/components/SettingsButton/SettingsButton.module.css
+app/frontend/src/components/SettingsButton/SettingsButton.tsx
+app/frontend/src/components/SupportingContent/index.ts
+app/frontend/src/components/SupportingContent/SupportingContent.module.css
+app/frontend/src/components/SupportingContent/SupportingContent.tsx
+app/frontend/src/components/SupportingContent/SupportingContentParser.ts
+app/frontend/src/components/UserChatMessage/index.ts
+app/frontend/src/components/UserChatMessage/UserChatMessage.module.css
+app/frontend/src/components/UserChatMessage/UserChatMessage.tsx
+app/frontend/src/pages/NoPage.tsx
+app/frontend/src/pages/chat/Chat.module.css
+app/frontend/src/pages/chat/Chat.tsx
+app/frontend/src/pages/layout/Layout.module.css
+app/frontend/src/pages/layout/Layout.tsx
+app/frontend/src/pages/oneshot/OneShot.module.css
+app/frontend/src/pages/oneshot/OneShot.tsx
+assets/endpoint.png
+data/Reoger Bio.pdf
+data.01/Benefit_Options.pdf
+data.01/employee_handbook.pdf
+data.01/Northwind_Health_Plus_Benefits_Details.pdf
+data.01/Northwind_Standard_Benefits_Details.pdf
+data.01/PerksPlus.pdf
+data.01/role_library.pdf
+docs/appcomponents.png
+docs/chatscreen.png
+infra/abbreviations.json
+infra/main.bicep
+infra/main.parameters.json
+infra/core/ai/cognitiveservices.bicep
+infra/core/host/appservice.bicep
+infra/core/host/appserviceplan.bicep
+infra/core/search/search-services.bicep
+infra/core/security/role.bicep
+infra/core/storage/storage-account.bicep
+notebooks/chat-read-retrieve-read.ipynb
+notebooks/read-decompose-ask.ipynb
+notebooks/requirements.txt
+scripts/prepdocs.ps1
+scripts/prepdocs.py
+scripts/prepdocs.sh
+scripts/requirements.txt
+scripts/roles.ps1
+tests/test_messagebuilder.py
+tests/test_modelhelper.py
+tests/test_prepdocs.py
+myEnvironment-local.sh
+TODO.txt

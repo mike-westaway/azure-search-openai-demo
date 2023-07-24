@@ -1,1 +1,1 @@
-bash -x ./createPrivateEndpoints.sh > create.log 2>&1
+bash -x ./createPrivateEndpoints.sh 2>&1 | tee create.log 
