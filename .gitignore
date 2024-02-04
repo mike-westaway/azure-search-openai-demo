@@ -266,3 +266,4 @@ tests/test_modelhelper.py
 tests/test_prepdocs.py
 myEnvironment-local.sh
 TODO.txt
+myEnvironment.ps1
